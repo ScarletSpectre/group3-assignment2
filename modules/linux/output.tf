@@ -13,5 +13,5 @@ output "linux_public_ip" {
 }
 output "linux_nic" {
   # value = [azurerm_public_ip.linux_pub_ip[*].ip_address]
-  value = [element(azurerm_network_interface.linux_nic[*], count.index + 1)]
+  value = [values(azurerm_network_interface.linux_nic[*])]
 }
