@@ -35,7 +35,7 @@ resource "azurerm_lb_backend_address_pool" "bpepool" {
 
 resource "azurerm_network_interface_backend_address_pool_association" "lb_pool_association" {
   count                   = length(var.linux_name)
-  network_interface_id    = var.linux_nic[count.index - 1].id
+  network_interface_id    = var.linux_nic.id
   ip_configuration_name   = keys(var.linux_name)[count.index]
   backend_address_pool_id = azurerm_lb_backend_address_pool.bpepool.id
 }
