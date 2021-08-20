@@ -21,7 +21,7 @@ module "load_balancer" {
   rg1    = "group3-assignment2-rg"
   # linux_name = var.linux_vms
   public_ip_address_id = [module.linux.linux_public_ip]
-  linux_nic            = [module.linux.linux_nic]
+  linux_nic            = module.linux.linux_nic
   subnet_id_lb         = [module.network.subnet.id]
   linux_name           = var.linux_name
 }
